@@ -1,0 +1,55 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: gateway-web
+  cloud:
+    nacos:
+      config:
+        import-check:
+          enabled: false
+        server-addr: nacos-server:8848
+        file-extension: yaml
+      discovery:
+        server-addr: nacos-server:8848
+    gateway:
+      routes:
+        - id: goods_route
+          uri: lb://seckill-goods
+          predicates:
+            - Path=/api/skuAct/**,/api/activity/**,/api/brand/**,/api/category/**,/api/seckillTime/**,/api/sku/**
+          filters:
+            - StripPrefix=1
+        - id: order_route
+          uri: lb://seckill-order
+          predicates:
+            - Path=/api/order/**
+          filters:
+            - StripPrefix=1
+        - id: search_route
+          uri: lb://seckill-search
+          predicates:
+            - Path=/api/search/**
+          filters:
+            - StripPrefix=1
+        - id: user_route
+          uri: lb://seckill-user
+          predicates:
+            - Path=/api/user/**
+          filters:
+            - StripPrefix=1
+        - id: manager_route
+          uri: lb://seckill-manager
+          predicates:
+            - Path=/api/admin/**
+          filters:
+            - StripPrefix=1
+        - id: page_route
+          uri: lb://seckill-page
+          predicates:
+            - Path=/api/page/**
+          filters:
+            - StripPrefix=1
+logging:
+  pattern:
+    console: "[%d{HH:mm:ss}] - %msg%n"
