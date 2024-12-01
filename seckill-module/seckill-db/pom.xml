@@ -30,13 +30,6 @@
             <version>3.0.4</version>
         </dependency>
 
-        <!--通用mapper起步依赖,MyBatis通用Mapper封装，基于MyBatis动态SQL实现,可以实现对数据库的操作，不需要编写SQL语句-->
-        <dependency>
-            <groupId>tk.mybatis</groupId>
-            <artifactId>mapper-spring-boot-starter</artifactId>
-            <version>5.0.1</version>
-        </dependency>
-
         <!--mybatis分页插件,用于解决数据库分页实现  PageHelper.start(当前页，每页显示的条数)-->
         <dependency>
             <groupId>com.github.pagehelper</groupId>

@@ -1,9 +1,9 @@
 package com.seckill;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import tk.mybatis.spring.annotation.MapperScan;
 
 @MapperScan(basePackages = "com.seckill.user.dao")
 @EnableDiscoveryClient
